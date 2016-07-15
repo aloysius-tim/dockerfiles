@@ -10,6 +10,8 @@ COPY ./entrypoint.sh /entrypoint.sh
 RUN set -ex;                    \
 	npm install -g npm;			\
     npm install -g angular-cli; \
-    npm cache clean;
+    npm cache clean;			\
+    chmod 775 /entrypoint.sh;	\
+    chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
