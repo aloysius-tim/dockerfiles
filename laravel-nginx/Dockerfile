@@ -50,10 +50,16 @@ RUN php5enmod mcrypt
 #  && php5enmod mysql \
 #  && php5enmod
 
+# defining the volumes that need to be mounted
+VOLUME /var/www/storage/logs
+VOLUME /var/log/nginx
+
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN sed -i "s/cgi.fix_pathinfo=/cgi.fix_pathinfo=0#/g" /etc/php5/fpm/php.ini
+
+COPY run_after_copying_repo.sh /user/local/bin/run_after_copying_repo
 
 # https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 # https://github.com/nginxinc/docker-nginx/blob/11fc019b2be3ad51ba5d097b1857a099c4056213/mainline/jessie/Dockerfile#L27
-CMD ["nginx"]
+CMD service php5-fpm start && nginx
