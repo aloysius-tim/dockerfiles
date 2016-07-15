@@ -12,4 +12,3 @@ RUN set -ex;                    \
     npm cache clean;
 
 ENTRYPOINT ["/usr/bin/entrypoint"]
-CMD ["--help"]
