@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 # After copying the repo of your project
 # run this script to run composer update
 # and preform some basic required actions.
