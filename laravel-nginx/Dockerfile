@@ -57,7 +57,7 @@ VOLUME /var/log/nginx
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN sed -i "s/cgi.fix_pathinfo=/cgi.fix_pathinfo=0#/g" /etc/php5/fpm/php.ini
 
-COPY run_after_copying_repo.sh /user/local/bin/run_after_copying_repo
+COPY run_after_copying_repo.sh /usr/local/bin/run_after_copying_repo
 
 # https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
