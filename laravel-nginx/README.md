@@ -27,9 +27,10 @@ laravel-dockerfiles
   |  - .env
   |  - laravel.env
   |  - my.cnf
-  - laravel-general.env
+  - common.env
   - laravel.Dockerfile
   - common.yml
+  - db.yml
   
 ```
 
@@ -59,14 +60,9 @@ services:
       - db
       - search
   db:
-    image: mariadb
-    environment:
-      - MYSQL_ROOT_PASSWORD=${db_pwd}
-    expose:
-      - "3306"
-    volumes:
-      - "$PWD/my.cnf:/etc/mysql/my.cnf"
-      - "${db_location}:/var/lib/mysql"
+    extends:
+      file: $PWD/../db.yml
+      service: db
   cache:
     image: redis
     expose:
@@ -96,11 +92,27 @@ services:
       context: "${path_to_project_repo}/"
       dockerfile: "$PWD/../laravel.Dockerfile"
     env_file:
-      - ./laravel.env
-      - ../laravel-general.env
+      - $PWD/laravel.env
+      - common.env
     ports:
       - "${exposed_to_host_port}:80"
     volumes:
       - /var/log/docker/frontend/laravel:/var/www/storage/logs
       - /var/log/docker/frontend/nginx:/var/log/nginx
+```
+
+
+```yaml
+# db.yml
+version: '2'
+services:
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=${db_pwd}
+    expose:
+      - "3306"
+    volumes:
+      - "$PWD/my.cnf:/etc/mysql/my.cnf"
+      - "${db_location}:/var/lib/mysql"
 ```
