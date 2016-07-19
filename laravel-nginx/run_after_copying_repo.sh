@@ -9,4 +9,4 @@ mkdir /repo/bootstrap/cache || true
 /usr/local/bin/composer update --no-scripts
 mkdir /var/www/storage/framework/views || true
 chown www-data:www-data -R /var/www
-chmod 777 -R /var/www/storage
+chmod 755 -R /var/www/storage
