@@ -54,6 +54,10 @@ RUN php5enmod mcrypt
 VOLUME /var/www/storage/logs
 VOLUME /var/log/nginx
 
+# https://laravel.com/docs/5.1/scheduling
+RUN echo '* * * * * /usr/local/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1' | sudo tee --append /var/spool/cron/crontabs/$USER
+RUN chmod 600 /var/spool/cron/crontabs/$USER
+
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN sed -i "s/cgi.fix_pathinfo=/cgi.fix_pathinfo=0#/g" /etc/php5/fpm/php.ini
 
