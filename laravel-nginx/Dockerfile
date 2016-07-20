@@ -11,6 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # runs during installation and remove junk, as described in http://docs.docker.com/engine/articles/dockerfile_best-practices/#apt-get
 RUN apt-get update && \
   apt-get install -y \
+  cron \
   nginx \
 # https://github.com/docker-library/php/issues/60
   zlib1g-dev \
@@ -54,10 +55,13 @@ RUN php5enmod mcrypt
 VOLUME /var/www/storage/logs
 VOLUME /var/log/nginx
 
+# https://laravel.com/docs/5.1/scheduling
+RUN job='* * * * * /usr/local/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1' && USER=root && (crontab -u $USER -l; echo "$job") | crontab -u $USER -
+
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN sed -i "s/cgi.fix_pathinfo=/cgi.fix_pathinfo=0#/g" /etc/php5/fpm/php.ini
 
-COPY run_after_copying_repo.sh /user/local/bin/run_after_copying_repo
+COPY run_after_copying_repo.sh /usr/local/bin/run_after_copying_repo
 
 # https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
