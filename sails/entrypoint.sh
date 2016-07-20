@@ -14,4 +14,5 @@ if [ "$APP_DEBUG" == true ] ; then
 	sails lift
 else
 	forever start /project/app.js --prod
+	tail -f /dev/null # keep the docker running mate
 fi
