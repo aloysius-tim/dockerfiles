@@ -1,10 +1,10 @@
-# docker-ng
+# docker-ng-nginx
 
-Angular 2 client, known as [angular-cli](https://github.com/angular/angular-cli) and providing "ng" command
+Angular 2 client, known as [angular-cli](https://github.com/angular/angular-cli) with Nginx
 
 # Details
 
-Image provides exposed port: 4200 (app) and 49152 (livereload).
+Image provides exposed port: 4200 (app), 49152 (livereload) and 80 (Nginx).
 
 The default working directory is "/project", so you **should link you workspace to that directory** (see "How to use" section).
 
@@ -74,20 +74,4 @@ services:
         volumes:
         - ./:/project
 ```
-
-# Generate project files:
-
-Example, create a new component (if you're in "myproject" directory):
-
-```bash
-docker run --rm -it 
-    -v $(pwd):/project   \
-    superbuddy/ng-cli-nginx g component my-new-component
-```
-
-Or use your docker-compose.yml file:
-```bash
-docker-compose run --rm myproject g component my-new-component
-```
-
 
