@@ -10,3 +10,5 @@ mkdir /var/www/bootstrap/cache || true
 mkdir /var/www/storage/framework/views || true
 chown www-data:www-data -R /var/www
 chmod 755 -R /var/www/storage
+
+exec "$@"
