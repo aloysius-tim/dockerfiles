@@ -11,7 +11,8 @@ chown www-data:www-data -R /var/www
 chmod 755 -R /var/www/storage
 
 echo "running composer update"
-/usr/local/bin/composer update
+/usr/local/bin/composer update --no-script
+php /var/www/artisan migrate --force
 
 echo "starting php5-fpm && nginx"
 service php5-fpm start && nginx
