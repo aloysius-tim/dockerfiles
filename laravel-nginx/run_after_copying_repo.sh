@@ -12,7 +12,7 @@ chmod 755 -R /var/www/storage
 
 echo "running composer update"
 /usr/local/bin/composer update --no-scripts
-php /var/www/artisan migrate --force
+#php /var/www/artisan migrate --force
 
 echo "starting php5-fpm && nginx"
 service php5-fpm start && nginx
