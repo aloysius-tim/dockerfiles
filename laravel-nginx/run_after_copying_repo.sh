@@ -5,7 +5,7 @@ set -e
 # and preform some basic required actions.
 
 # if dir exist, do not produce an error (|| true)
-mkdir /repo/bootstrap/cache || true
+mkdir /var/www/bootstrap/cache || true
 /usr/local/bin/composer update --no-scripts
 mkdir /var/www/storage/framework/views || true
 chown www-data:www-data -R /var/www
