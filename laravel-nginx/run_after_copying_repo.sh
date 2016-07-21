@@ -6,9 +6,12 @@ set -e
 
 # if dir exist, do not produce an error (|| true)
 mkdir /var/www/bootstrap/cache || true
-/usr/local/bin/composer update --no-scripts
 mkdir /var/www/storage/framework/views || true
 chown www-data:www-data -R /var/www
 chmod 755 -R /var/www/storage
 
-exec "$@"
+echo "running composer update"
+/usr/local/bin/composer update
+
+echo "starting php5-fpm && nginx"
+service php5-fpm start && nginx
