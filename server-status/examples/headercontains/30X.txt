@@ -1,0 +1,6 @@
+HTTP/1.1 30
+# All http should redirect to https
+http://www.google.com
+
+# All apex domains should redirect to www sub domain
+https://google.com

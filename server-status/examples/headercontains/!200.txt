@@ -1,0 +1,7 @@
+!HTTP/1.1 200
+# All URLs are checked for "HTTP/1.1 200", if they do NOT contain it
+
+# All http should get a redirect to https, not a 200 OK
+http://www.google.com 'instead of this check, you should check for HTTP/1.1 30'
+# apex domains should be forwarded to the www subdomain
+https://google.com "optionally comment, not needed"

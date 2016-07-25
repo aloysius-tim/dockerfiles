@@ -1,0 +1,4 @@
+jquery
+# example, you can check for a specific version
+
+http://jasonupton.com
