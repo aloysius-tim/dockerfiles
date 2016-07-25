@@ -55,8 +55,11 @@ RUN php5enmod mcrypt
 VOLUME /var/www/storage/logs
 VOLUME /var/log/nginx
 
+# Set up cron
 # https://laravel.com/docs/5.1/scheduling
-RUN job='* * * * * /usr/local/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1' && USER=root && (crontab -u $USER -l; echo "$job") | crontab -u $USER -
+ADD crontab /var/spool/cron/crontabs/www-data
+RUN chown www-data.crontab /var/spool/cron/crontabs/www-data
+RUN chmod 0600 /var/spool/cron/crontabs/www-data
 
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN sed -i "s/cgi.fix_pathinfo=/cgi.fix_pathinfo=0#/g" /etc/php5/fpm/php.ini
