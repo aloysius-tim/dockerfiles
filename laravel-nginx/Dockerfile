@@ -60,9 +60,11 @@ VOLUME /var/log/nginx
 ADD crontab /var/spool/cron/crontabs/www-data
 RUN chown www-data.crontab /var/spool/cron/crontabs/www-data
 RUN chmod 0600 /var/spool/cron/crontabs/www-data
+RUN service cron start
 
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN sed -i "s/cgi.fix_pathinfo=/cgi.fix_pathinfo=0#/g" /etc/php5/fpm/php.ini
+RUN sed -i "s/default_socket_timeout=.*/default_socket_timeout=3600/g" /etc/php5/fpm/php.ini
 
 COPY run_after_copying_repo.sh /usr/local/bin/run_after_copying_repo
 
