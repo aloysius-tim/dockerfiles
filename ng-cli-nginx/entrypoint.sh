@@ -18,5 +18,6 @@ if [ "$APP_DEBUG" == true ] ; then
 else
 	# make sure everything is installed for the project.
 	npm install --only=production
+	ng build -prod
 	tail -f /dev/null
 fi
