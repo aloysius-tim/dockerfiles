@@ -2,6 +2,11 @@
 # https://api.slack.com/incoming-webhooks
 set -e
 
+# http://stackoverflow.com/questions/26178654/bash-command-not-found-when-setting-a-variable
+function json_escape {
+  echo -n "$@" | python -c 'import json,sys; print json.dumps(sys.stdin.read())'
+}
+
 [[ -z "$1" ]] \
   && echo "docker run -it --rm \
     superbuddy/slack-push https://hooks.slack.com/services/xx/xx/xx \
@@ -24,6 +29,7 @@ icon=':speech_balloon:'
 
 msg="You can set various icons from slack;\n:white_check_mark: for passing tests\n:interrobang:, :warning:, :x: or :fire: for failing tests\n:package: or :whale2: for your docker status\n"
 [[ -n "$@" ]] && msg=$@
+msg=$(json_escape $msg)
 
 data='{"text":"'$msg'","username":"'$uname'","icon_emoji":"'$icon'","channel":"#'$channel'"}'
 
