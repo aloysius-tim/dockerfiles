@@ -46,6 +46,8 @@ RUN docker-php-ext-install \
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+RUN cp /etc/php5/cli/php.ini /usr/local/etc/php/conf.d/php.ini
+
 RUN php5enmod mcrypt
 #  && php5enmod imap \
 #  && php5enmod mysql \
