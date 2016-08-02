@@ -29,7 +29,10 @@ icon=':speech_balloon:'
 
 msg="You can set various icons from slack;\n:white_check_mark: for passing tests\n:interrobang:, :warning:, :x: or :fire: for failing tests\n:package: or :whale2: for your docker status\n"
 [[ -n "$@" ]] && msg=$@
+echo $msg
+echo --------------------------------------------
 msg=$(json_escape $msg)
+echo $msg
 
 data='{"text":"'$msg'","username":"'$uname'","icon_emoji":"'$icon'","channel":"#'$channel'"}'
 
