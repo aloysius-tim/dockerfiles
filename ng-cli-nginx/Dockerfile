@@ -5,6 +5,8 @@ WORKDIR /project
 EXPOSE 4200 49152 80
 ENV HOME /project
 
+VOLUME /project
+
 COPY ./entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && apt-get install -y nginx
