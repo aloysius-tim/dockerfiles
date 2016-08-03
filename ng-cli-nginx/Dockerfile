@@ -9,8 +9,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && apt-get install -y nginx
 
-RUN	npm install -g npm			  	\
-    && npm install -g angular-cli 	\
+RUN	npm install -g npm angular-cli typings 	\
     && npm cache clean
 
 RUN chmod 775 /entrypoint.sh && chmod +x /entrypoint.sh
