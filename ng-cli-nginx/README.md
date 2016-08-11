@@ -5,6 +5,7 @@ This docker contains the angular-cli and nginx.
 ## Environment
 
 `APP_DEBUG=boolean` - Simply a boolean to check if you want to use `nginx` or `ng serve` 
+`DEBUG_HOST=ip` - Set the ip for `ng-serve` to host on, defaults to `0.0.0.0`
 
 ## Running
 
