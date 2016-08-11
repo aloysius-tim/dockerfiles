@@ -1,4 +1,4 @@
-FROM node:4.4.7
+FROM node
 MAINTAINER Jurien Hamaker <jurien@superbuddy.nl>
 
 WORKDIR /project
