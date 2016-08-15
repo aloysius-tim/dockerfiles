@@ -15,7 +15,7 @@ echo "running composer update"
 #php /var/www/artisan migrate --force
 
 if [ "$HTTPS" == false ] ; then
-	RUN sed -i "s/fastcgi_param  HTTPS \"on\";/fastcgi_param  HTTPS \"off\";#/g" /etc/nginx/sites-available/default
+	sed -i "s/fastcgi_param  HTTPS \"on\";/fastcgi_param  HTTPS \"off\";#/g" /etc/nginx/sites-available/default
 fi
 
 echo "starting php5-fpm && nginx"
