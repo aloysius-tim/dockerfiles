@@ -11,6 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # runs during installation and remove junk, as described in http://docs.docker.com/engine/articles/dockerfile_best-practices/#apt-get
 RUN apt-get update && \
   apt-get install -y \
+  git \
   cron \
   nginx \
 # https://github.com/docker-library/php/issues/60
