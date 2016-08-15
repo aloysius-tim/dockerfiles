@@ -13,6 +13,6 @@ echo "$APP_DEBUG"
 if [ "$APP_DEBUG" == true ] ; then
 	sails lift
 else
-	forever start /project/app.js --prod
-	tail -f /dev/null # keep the docker running mate
+	forever -o /var/log/docker/sailsjs.log -e /var/log/docker/sailsjs.log start /project/app.js --prod
+	tail -f /var/log/docker/sailsjs.log # keep the docker running mate
 fi
