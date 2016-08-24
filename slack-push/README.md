@@ -1,4 +1,7 @@
 # slack-push
+
+[![](https://images.microbadger.com/badges/image/superbuddy/slack-push.svg)](https://microbadger.com/images/superbuddy/slack-push "Get your own image badge on microbadger.com")
+
 This docker lets you easily push messages to slack.
 
 We use it to push our server-status to slack (cronjob / CI).
