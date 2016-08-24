@@ -1,5 +1,7 @@
 # Server status
 
+[![](https://images.microbadger.com/badges/image/superbuddy/server-status.svg)](https://microbadger.com/images/superbuddy/server-status "Get your own image badge on microbadger.com")
+
 This docker lets you test the status of your server.
 
 ## usage
