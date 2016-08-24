@@ -1,5 +1,7 @@
 # Sails.js
 
+[![](https://images.microbadger.com/badges/image/superbuddy/sails.svg)](https://microbadger.com/images/superbuddy/sails "Get your own image badge on microbadger.com")
+
 Just sails, useful for chaining.
 
 
