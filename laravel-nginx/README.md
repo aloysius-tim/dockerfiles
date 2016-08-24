@@ -1,5 +1,7 @@
 # laravel-nginx
 
+[![](https://images.microbadger.com/badges/image/superbuddy/laravel-nginx.svg)](https://microbadger.com/images/superbuddy/laravel-nginx "Get your own image badge on microbadger.com")
+
 Just Laravel, Nginx, PHP fpm, Composer and Mcrypt.
 We put this online, since we could not find a decent base image for our use.
 
