@@ -1,5 +1,7 @@
 # testnodejs
 
+[![](https://images.microbadger.com/badges/image/superbuddy/testnodejs.svg)](https://microbadger.com/images/superbuddy/testnodejs "Get your own image badge on microbadger.com")
+
 This container runs node.js test.
 
 + The dependencies are installed in the Dockerfile.

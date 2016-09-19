@@ -1,5 +1,7 @@
 # docker ng-cli-nginx
 
+[![](https://images.microbadger.com/badges/image/superbuddy/ng-cli-nginx.svg)](https://microbadger.com/images/superbuddy/ng-cli-nginx "Get your own image badge on microbadger.com")
+
 This docker contains the angular-cli and nginx.
 
 ## Environment
