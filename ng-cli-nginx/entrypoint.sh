@@ -11,6 +11,7 @@ shopt -s nullglob dotglob
 files=(/project/*)
 # check if it's empty
 if [ ${#files[@]} -eq 0 ]; then
+	echo "No angular-cli project found, creating one."
 	ng init
 fi
 
