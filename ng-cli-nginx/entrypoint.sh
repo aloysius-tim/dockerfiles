@@ -25,8 +25,11 @@ if [ "$APP_DEBUG" == true ] ; then
 	# make sure everything is installed for the project.
 	npm install
 
-	echo "Using npm start to start dev server, change it in the package.json if you want a different behavior."
-	ng serve --host=$DEBUG_HOST
+	if [ "$AOT" == true ] ; then
+		ng serve --host=$DEBUG_HOST
+	else
+		ng serve --host=$DEBUG_HOST --aot
+	fi
 else
 	# make sure everything is installed for the project.
 	npm install --only=production
