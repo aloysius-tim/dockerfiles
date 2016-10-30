@@ -10,6 +10,9 @@ WORKDIR /project
 EXPOSE 3000 5858 81
 ENV HOME /project
 
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod 775 /entrypoint.sh && chmod +x /entrypoint.sh
+
 # Fixes https://github.com/npm/npm/issues/9863
 RUN cd $(npm root -g)/npm \
 	&& npm install fs-extra \
@@ -21,4 +24,4 @@ RUN	npm install --unsafe-perm -g npm \
     @mean-expert/loopback-sdk-builder \
     && npm cache clean
 
-CMD ["/bin/bash"]
+CMD ["/entrypoint.sh"]
