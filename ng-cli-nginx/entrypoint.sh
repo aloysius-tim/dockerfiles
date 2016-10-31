@@ -10,7 +10,7 @@ echo "$APP_DEBUG"
 shopt -s nullglob dotglob 
 files=(/project/*)
 # check if it's empty
-if [ ${#files[@]} -eq 0 ]; then
+if [ ! -f ./angular-cli.json ]; then
 	echo "No angular-cli project found, creating one."
 	ng init
 fi
@@ -24,15 +24,21 @@ typings install
 if [ "$APP_DEBUG" == true ] ; then
 	# make sure everything is installed for the project.
 	npm install
+	npm link angular-cli
 
+	echo "running ng-cli" 
 	if [ "$AOT" == true ] ; then
-		ng serve --host=$DEBUG_HOST
-	else
+		echo "AOT enabled, using AOT"
 		ng serve --host=$DEBUG_HOST --aot
+	else
+		ng serve --host=$DEBUG_HOST
 	fi
 else
+	echo "building with ng-cli"
 	# make sure everything is installed for the project.
 	npm install --only=production
 	ng build -prod
+
+	echo "running nginx"
 	nginx
 fi
