@@ -19,7 +19,7 @@ fi
 if [ "$APP_DEBUG" == true ] ; then
 	# make sure everything is installed for the project.
 	npm install
-	gulp
+	grunt
 else
 	# make sure everything is installed for the project.
 	npm install --only=production

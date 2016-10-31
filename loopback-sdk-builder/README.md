@@ -29,5 +29,5 @@ Dependencies:
 	      - 5858:5858
 	    volumes:
 	      - /your/loopback/application/root:/project
-	      - /your/loopback/sdk/rpot:/sdk
+	      - /your/loopback/sdk/root:/sdk
 	    entrypoint: ["grunt"]
