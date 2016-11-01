@@ -24,7 +24,6 @@ typings install
 if [ "$APP_DEBUG" == true ] ; then
 	# make sure everything is installed for the project.
 	npm install
-	npm link angular-cli
 
 	echo "running ng-cli" 
 	if [ "$AOT" == true ] ; then
