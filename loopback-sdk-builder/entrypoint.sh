@@ -23,5 +23,5 @@ if [ "$APP_DEBUG" == true ] ; then
 else
 	# make sure everything is installed for the project.
 	npm install --only=production
-	node .
+	grunt
 fi
