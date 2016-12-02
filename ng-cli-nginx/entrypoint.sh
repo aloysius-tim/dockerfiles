@@ -20,10 +20,11 @@ typings install
 
 : ${DEBUG_HOST:=0.0.0.0}
 
+npm install
+
 # if in debug mode, start the serve command for auto reload.
 if [ "$APP_DEBUG" == true ] ; then
 	# make sure everything is installed for the project.
-	npm install
 
 	echo "running ng-cli" 
 	if [ "$AOT" == true ] ; then
@@ -35,7 +36,6 @@ if [ "$APP_DEBUG" == true ] ; then
 else
 	echo "building with ng-cli"
 	# make sure everything is installed for the project.
-	npm install --only=production
 	ng build -prod
 
 	echo "running nginx"
