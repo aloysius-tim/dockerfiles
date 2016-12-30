@@ -22,6 +22,7 @@ RUN	npm install --unsafe-perm -g npm \
 	grunt \
 	grunt-nodemon \
     grunt-cli \
+    forever \
     strongloop					 	\
     @mean-expert/loopback-sdk-builder \
     && npm cache clean
