@@ -24,6 +24,6 @@ else
 	# make sure everything is installed for the project.
 	npm install --only=production
 	
-	forever start -l info.log -o info.log -e error.log server/server.js
+	forever start -l info.log -o info.log -e error.log -a server/server.js
 	tail -f ./.forever/info.log
 fi
