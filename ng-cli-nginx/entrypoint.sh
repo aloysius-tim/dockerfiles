@@ -36,7 +36,12 @@ if [ "$APP_DEBUG" == true ] ; then
 else
 	echo "building with ng-cli"
 	# make sure everything is installed for the project.
-	ng build -prod
+	if [ "$AOT" == true ] ; then
+		echo "AOT enabled, using AOT"
+		ng build -prod --aot
+	else
+		ng build -prod
+	fi
 
 	echo "running nginx"
 	nginx
