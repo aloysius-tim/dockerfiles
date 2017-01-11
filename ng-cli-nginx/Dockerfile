@@ -13,6 +13,9 @@ RUN chmod 775 /entrypoint.sh && chmod +x /entrypoint.sh
 COPY ./postinstall.sh /postinstall.sh
 RUN chmod 775 /postinstall.sh && chmod +x /postinstall.sh
 
+COPY ./buildscript.sh /buildscript.sh
+RUN chmod 775 /buildscript.sh && chmod +x /buildscript.sh
+
 COPY nginx.conf /etc/nginx/sites-available/angular
 
 RUN /postinstall.sh

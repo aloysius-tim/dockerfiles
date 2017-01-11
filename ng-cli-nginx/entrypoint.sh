@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ ! -d /var/log/nginx ]; then
+	mkdir /var/log/nginx;
+fi
+if [ ! -f /var/log/nginx/access.log ]; then
+    touch /var/log/nginx/access.log
+fi
+if [ ! -f /var/log/nginx/error.log ]; then
+    touch /var/log/nginx/error.log
+fi
+
 # cd to the project
 cd /project || exit
 
@@ -34,14 +44,9 @@ if [ "$APP_DEBUG" == true ] ; then
 		ng serve --host=$DEBUG_HOST
 	fi
 else
-	echo "building with ng-cli"
-	# make sure everything is installed for the project.
-	if [ "$AOT" == true ] ; then
-		echo "AOT enabled, using AOT"
-		ng build -prod --aot
-	else
-		ng build -prod
-	fi
+	echo "building using /buildscript.sh"
+	
+	bash /buildscript.sh
 
 	echo "running nginx"
 	nginx
