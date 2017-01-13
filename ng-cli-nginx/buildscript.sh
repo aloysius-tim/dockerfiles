@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm install
+
 # make sure everything is installed for the project.
 if [ "$AOT" == true ] ; then
 	echo "AOT enabled, using AOT"
