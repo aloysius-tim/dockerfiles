@@ -45,7 +45,7 @@ if [ "$APP_DEBUG" == true ] ; then
 else
 	echo "building using /buildscript.sh"
 	
-	bash /buildscript.sh
+	build
 
 	echo "running nginx"
 	nginx
