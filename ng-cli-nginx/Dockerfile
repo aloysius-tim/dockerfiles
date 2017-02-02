@@ -1,9 +1,9 @@
-FROM node:6
+FROM node:6.9
 MAINTAINER Jurien Hamaker <jurien@superbuddy.nl>
 
 WORKDIR /project
 EXPOSE 4200 49152 80
-ENV HOME /project
+# ENV HOME /project
 
 VOLUME /project
 
