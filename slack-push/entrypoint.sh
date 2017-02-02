@@ -4,7 +4,7 @@ set -e
 
 # http://stackoverflow.com/questions/26178654/bash-command-not-found-when-setting-a-variable
 function json_escape {
-  echo -n "$@" | python -c 'import json,sys; print json.dumps(sys.stdin.read())'
+  echo -en "$@" | python -c 'import json,sys; print json.dumps(sys.stdin.read())'
 }
 
 [[ -z "$1" ]] \
@@ -28,8 +28,8 @@ icon=':speech_balloon:'
 [[ -n "$1" ]] && icon=$1; shift
 
 msg="You can set various icons from slack;\n:white_check_mark: for passing tests\n:interrobang:, :warning:, :x: or :fire: for failing tests\n:package: or :whale2: for your docker status\n"
-[[ -n "$@" ]] && msg=$@
-msg=$(json_escape $msg)
+[[ -n "$@" ]] && msg="$@"
+msg=$(json_escape "$msg")
 
 data='{"text":'$msg',"username":"'$uname'","icon_emoji":"'$icon'","channel":"#'$channel'"}'
 
