@@ -6,4 +6,4 @@ echo "daemon off;" >> /etc/nginx/nginx.conf
 rm -rf /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/angular /etc/nginx/sites-enabled/default
 
-npm install -gf angular-cli@latest @angular/tsc-wrapped typings typescript
+npm install -gf @angular/cli @angular/tsc-wrapped typings typescript
