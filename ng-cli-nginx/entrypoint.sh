@@ -38,9 +38,9 @@ if [ "$APP_DEBUG" == true ] ; then
 	echo "running ng-cli" 
 	if [ "$AOT" == true ] ; then
 		echo "AOT enabled, using AOT"
-		ng serve --host=$DEBUG_HOST --aot
+		ng serve --host=$DEBUG_HOST --aot --env=dev
 	else
-		ng serve --host=$DEBUG_HOST
+		ng serve --host=$DEBUG_HOST --env=dev
 	fi
 else
 	echo "building using /buildscript.sh"
