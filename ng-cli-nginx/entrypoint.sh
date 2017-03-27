@@ -25,9 +25,6 @@ if [ ! -f ./angular-cli.json ]; then
 	ng init
 fi
 
-# install all typings
-typings install
-
 : ${DEBUG_HOST:=0.0.0.0}
 
 # if in debug mode, start the serve command for auto reload.
