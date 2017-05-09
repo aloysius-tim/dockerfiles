@@ -1,5 +1,5 @@
 # Node
-FROM node:6
+FROM node:7
 MAINTAINER Jurien Hamaker <jurien@superbuddy.nl>
 
 # Volumes
